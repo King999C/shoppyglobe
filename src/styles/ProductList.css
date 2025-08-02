@@ -41,7 +41,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
-  justify-items: center; /* Ensures card stays centered inside grid cell */
+  justify-items: center;
+  /* Ensures card stays centered inside grid cell */
 }
 
 

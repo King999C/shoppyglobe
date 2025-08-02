@@ -1,19 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import '../styles/Header.css';
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import "../styles/Header.css";
 
 const Header = () => {
-  const cart = useSelector(state => state.cart);
-
+  const cartItems = useSelector((state) => state.cart.items || []);
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <header>
       <nav>
-        <Link to="/">ShoppyGlobe</Link>
-        <Link className='home' to="/">Home</Link>
-        <Link to="/cart">Cart ({cart.length})</Link>
-        <button className='btn_header'>Login</button>
-        <button className='btn_header'>Create</button>
+        <Link to="/">Shoppy-Globe</Link>
+        <Link className="home" to="/">
+          Home
+        </Link>
+        <Link to="/cart">{totalItems} 🛒 Cart </Link>
       </nav>
     </header>
   );
